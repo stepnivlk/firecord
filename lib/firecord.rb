@@ -1,5 +1,10 @@
 require "firecord/version"
+require 'firecord/configuration'
+require 'firecord/credentials'
+require 'firecord/client'
+require 'firecord/record'
+require 'firecord/model'
 
 module Firecord
-  # Your code goes here...
+  extend Configuration
 end
