@@ -65,6 +65,7 @@ This release is not meant to be used by anyone in production. I'm trying to lay 
 - [ ] Better configuration
 - [ ] Some basic associations
 - [ ] Documentation
+- [ ] Define nested documents
 
 ## Installation
 
