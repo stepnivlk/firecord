@@ -50,7 +50,7 @@ module Firecord
       private
 
       def symbolize_keys(record, default = {})
-        record.inject(default) { |h, (k, v)| h[k.to_sym] = v; h}
+        record.inject(default) { |h, (k, v)| h[k.to_sym] = v; h }
       end
 
       def payload(record)

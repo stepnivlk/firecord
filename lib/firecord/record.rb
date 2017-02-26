@@ -5,7 +5,7 @@ module Firecord
       super
     end
 
-    alias :model :class
+    alias model class
 
     def initialize(params = {})
       fields.each do |field|
