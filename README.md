@@ -39,7 +39,7 @@ same_address.door_number = 23
 same_address.save
 #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:47:22+00:00">
 
-same_address.update(location: 'Prerov nad Labem vole')
+same_address.update(location: 'Prerov nad Labem')
 # => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">
 
 Address.all
