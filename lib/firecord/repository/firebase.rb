@@ -13,17 +13,17 @@ module Firecord
 
         @options = {
           headers: {
-            "Authorization" => "Bearer #{@credentials.generate_access_token}",
-            "Content-Type" => "application/json",
-            "User-Agent" => 'X-FIREBASE-CLIENT'
+            'Authorization' => "Bearer #{@credentials.generate_access_token}",
+            'Content-Type' => 'application/json',
+            'User-Agent' => 'X-FIREBASE-CLIENT'
           }
         }
       end
 
-      def get_all
+      def all
         self
           .class.get("/#{@root}.json", @options)
-          .map { |id, data| data.merge({id: id}) }
+          .map { |id, data| data.merge(id: id) }
           .map { |record| symbolize_keys(record) }
       end
 
@@ -50,7 +50,7 @@ module Firecord
       private
 
       def symbolize_keys(record, default = {})
-        record.inject(default) {|h,(k,v)| h[k.to_sym] = v; h}
+        record.inject(default) { |h, (k, v)| h[k.to_sym] = v; h}
       end
 
       def payload(record)

@@ -2,9 +2,9 @@ module Firecord
   module Configuration
     CREDENTIALS_FILE = './credentials.json'.freeze
 
-    VALID_ACCESSORS = [:credentials_file]
+    VALID_ACCESSORS = [:credentials_file].freeze
 
-    attr_accessor *VALID_ACCESSORS
+    attr_accessor(*VALID_ACCESSORS)
 
     def configure
       yield self

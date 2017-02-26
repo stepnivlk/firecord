@@ -5,13 +5,15 @@ module Firecord
       super
     end
 
-    alias_method :model, :class
+    alias :model :class
 
     def initialize(params = {})
       fields.each do |field|
-        self.class.class_eval{attr_accessor field.name}
-        value = params[field.name] || nil
-        instance_variable_set("@#{field.name}", value)
+        name = field.name
+
+        self.class.class_eval { attr_accessor name }
+        value = params[name] || nil
+        instance_variable_set("@#{name}", value)
       end
     end
 

@@ -2,18 +2,18 @@ module Firecord
   module Model
     def self.extended(model)
       model.instance_variable_set(:@fields, [])
-      model.fields << OpenStruct.new({name: :id, type: :private_key})
+      model.fields << OpenStruct.new(name: :id, type: :private_key)
     end
 
     def field(name, type = nil)
       return timestamps if name == :timestamps
 
-      @fields << OpenStruct.new({name: name, type: type})
+      @fields << OpenStruct.new(name: name, type: type)
     end
 
     def timestamps
       %i(created_at updated_at).each do |stamp|
-        @fields << OpenStruct.new({name: stamp, type: stamp})
+        @fields << OpenStruct.new(name: stamp, type: stamp)
       end
     end
 
@@ -23,7 +23,7 @@ module Firecord
 
     def all
       repository
-        .get_all
+        .all
         .map { |record| new(record).persist }
     end
 
