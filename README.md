@@ -30,7 +30,7 @@ address = Address.new(name: 'home', location: 'Prerov', door_number: 1)
 address.save
 # => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
 
-same_address = Address.find(address.id)
+same_address = Address.find("-KdvwtldpM4yVWJfoQIg")
 # => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
 
 same_address.door_number = 23
