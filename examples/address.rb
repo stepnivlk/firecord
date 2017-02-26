@@ -1,7 +1,7 @@
-require './firecord'
+require '../lib/firecord'
 
 Firecord.configure do |config|
-  config.credentials_file = './credentials.json'
+  config.credentials_file = '../../credentials.json'
 end
 
 class Address

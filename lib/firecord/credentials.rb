@@ -2,8 +2,9 @@ require 'jwt'
 
 module Firecord
   class Credentials
-    def initialize
-      @credentials = JSON.parse(File.read('./credentials.json'))
+    def initialize(credentials_file = nil)
+      @credentials = \
+        JSON.parse(File.read(credentials_file || Firecord.credentials_file))
       @private_key = OpenSSL::PKey::RSA.new @credentials['private_key']
     end
 
