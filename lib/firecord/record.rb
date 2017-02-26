@@ -16,7 +16,25 @@ module Firecord
     end
 
     def save
-      repository.post(self)
+      if new?
+        return self.tap do |record|
+          record.id = repository.post(persist)[:name]
+        end
+      end
+
+      self.tap { |record| repository.patch(record) }
+    end
+
+    def update(attributes = {})
+      attributes.each do |name, value|
+        send("#{name}=", value)
+      end
+
+      self.tap { |record| repository.patch(record) }
+    end
+
+    def delete
+      repository.delete(id)
     end
 
     def inspect
@@ -33,6 +51,20 @@ module Firecord
 
     def repository
       model.repository
+    end
+
+    def new?
+      persistence_state == :transient
+    end
+
+    def persist
+      @persistence_state = :persisted
+
+      self
+    end
+
+    def persistence_state
+      @persistence_state ||= :transient
     end
   end
 end

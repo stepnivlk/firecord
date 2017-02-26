@@ -30,11 +30,21 @@ module Firecord
       def get(id)
         self
           .class.get("/#{@root}/#{id}.json", @options)
-          .tap { |record| symbolize_keys(record, id: id) }
+          .as { |record| symbolize_keys(record, id: id) }
       end
 
       def post(record)
-        self.class.post("/#{@root}.json", payload(record))
+        self
+          .class.post("/#{@root}.json", payload(record))
+          .as { |response| symbolize_keys(response) }
+      end
+
+      def patch(record)
+        self.class.patch("/#{@root}/#{record.id}.json", payload(record))
+      end
+
+      def delete(id)
+        self.class.delete("/#{@root}/#{id}.json", @options)
       end
 
       private

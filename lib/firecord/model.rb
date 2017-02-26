@@ -1,8 +1,8 @@
 module Firecord
   module Model
     def self.extended(model)
-      private_key = OpenStruct.new({name: :id, type: :private_key})
-      model.instance_variable_set(:@fields, [private_key])
+      model.instance_variable_set(:@fields, [])
+      model.fields << OpenStruct.new({name: :id, type: :private_key})
     end
 
     def field(name, type = nil)
@@ -24,11 +24,11 @@ module Firecord
     def all
       repository
         .get_all
-        .map { |record| new(record) }
+        .map { |record| new(record).persist }
     end
 
     def find(id)
-      new(repository.get(id))
+      new(repository.get(id)).persist
     end
 
     def root_key(root_name)

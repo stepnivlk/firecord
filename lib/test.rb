@@ -1,11 +1,15 @@
 require './firecord'
 
-class Test
+Firecord.configure do |config|
+  config.credentials_file = './credentials.json'
+end
+
+class Address
   include Firecord::Record
 
-  root_key 'todos'
+  root_key 'addresses'
 
   field :name, :string
-  field :priority, :integer
+  field :location, :string
   field :timestamps
 end
