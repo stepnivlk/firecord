@@ -1,5 +1,11 @@
 require "firecord/version"
+require 'firecord/configuration'
+require 'firecord/credentials'
+require 'firecord/repository/firebase'
+require 'firecord/record'
+require 'firecord/model'
+require 'firecord/patch/as'
 
 module Firecord
-  # Your code goes here...
+  extend Configuration
 end
