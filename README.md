@@ -1,5 +1,7 @@
 # Firecord
 
+[![Ebert](https://ebertapp.io/github/stepnivlk/firecord.svg)](https://ebertapp.io/github/stepnivlk/firecord)
+
 Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.
 
 Connects to the Firebase REST API, (for now) is totally synchronous and provides similar API to all those classical Ruby ORMs.
