@@ -1,7 +1,7 @@
 require "firecord/version"
 require 'firecord/configuration'
 require 'firecord/credentials'
-require 'firecord/client'
+require 'firecord/repository/firebase'
 require 'firecord/record'
 require 'firecord/model'
 

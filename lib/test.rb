@@ -1,9 +1,11 @@
 require './firecord'
 
-class TestRecord
-  attr_accessor :test
+class Test
   include Firecord::Record
+
+  root_key 'todos'
 
   field :name, :string
   field :priority, :integer
+  field :timestamps
 end
