@@ -61,10 +61,12 @@ This release is not meant to be used by anyone in production. I'm trying to lay 
 
 ### Roadmap to version 0.3.0 codename Solid Spike
 - [ ] Working timestamps
+- [ ] Error handling
 - [ ] `where` method
 - [ ] Test everything
 - [ ] Better configuration
 - [ ] Documentation
+- [ ] Basic type validation
 
 ### Future versions
 - [ ] Add proper validation
