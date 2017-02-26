@@ -24,26 +24,26 @@ class Address
   field :timestamps
 end
 
-address = Address.new(name: 'home', location: 'Prerov vole', door_number: 1)
-# => #<Address id=nil name="home" location="Prerov vole" door_number=1 created_at=nil updated_at=nil>
+address = Address.new(name: 'home', location: 'Prerov', door_number: 1)
+# => #<Address id=nil name="home" location="Prerov" door_number=1 created_at=nil updated_at=nil>
 
 address.save
-# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov vole" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
+# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
 
 same_address = Address.find("-KdvwtldpM4yVWJfoQIg")
-# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov vole" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
+# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
 
 same_address.door_number = 23
 # => 23
 
 same_address.save
-#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:47:22+00:00">
+#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:47:22+00:00">
 
 same_address.update(location: 'Prerov nad Labem vole')
-# => #<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">
+# => #<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">
 
 Address.all
-# => [#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">]
+# => [#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">]
 
 address.delete
 # => true
