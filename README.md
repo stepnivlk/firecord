@@ -1,8 +1,8 @@
 # Firecord
 
 Firecord is an ODM (Object-Document-Mapper) framework for FireBase in Ruby.
-Provides similar API to all those classical Ruby ORM, except the fact that your data are stored in the cloud.
 
+Provides similar API to all those classical Ruby ORM.
 
 ## Usage
 
