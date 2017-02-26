@@ -1,6 +1,6 @@
 # Firecord
 
-[![Ebert](https://ebertapp.io/github/stepnivlk/firecord.svg)](https://ebertapp.io/github/stepnivlk/firecord)
+[![Build Status](https://travis-ci.org/stepnivlk/firecord.svg?branch=master)](https://travis-ci.org/stepnivlk/firecord) [![Ebert](https://ebertapp.io/github/stepnivlk/firecord.svg)](https://ebertapp.io/github/stepnivlk/firecord)
 
 Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.
 
