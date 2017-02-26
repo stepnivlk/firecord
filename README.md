@@ -1,8 +1,66 @@
 # Firecord
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/firecord`. To experiment with that code, run `bin/console` for an interactive prompt.
+Firecord is an ODM (Object-Document-Mapper) framework for FireBase in Ruby.
+Provides similar API to all those classical Ruby ORM, except the fact that your data are stored in the cloud.
 
-TODO: Delete this and the text above, and describe your gem
+
+## Usage
+
+```ruby
+require 'firecord'
+
+Firecord.configure do |config|
+  credentials_file: '/path/to/credentials.json'
+end
+
+class Address
+  include Firecord::Record
+
+  root_key 'addresses'
+
+  field :name, :string
+  field :location, :string
+  field :door_number, :integer
+  field :timestamps
+end
+
+address = Address.new(name: 'home', location: 'Prerov vole', door_number: 1)
+# => #<Address id=nil name="home" location="Prerov vole" door_number=1 created_at=nil updated_at=nil>
+
+address.save
+# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov vole" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
+
+same_address = Address.find("-KdvwtldpM4yVWJfoQIg")
+# => #<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov vole" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>
+
+same_address.door_number = 23
+# => 23
+
+same_address.save
+#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:47:22+00:00">
+
+same_address.update(location: 'Prerov nad Labem vole')
+# => #<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">
+
+Address.all
+# => [#<Address id=-KdvwtldpM4yVWJfoQIg name="home" location="Prerov nad Labem vole" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">]
+
+address.delete
+# => true
+
+Address.all
+# => []
+```
+
+## Current version: 0.2.0 codename Spike
+This release is not meant to be used by anyone in production. I'm trying to laid down the interface, experiment and learn basics of ORM/ODM by coding and producing something (maybe) usefull. I still need to finalize some functionality, do refactoring and add features.
+
+### What I'm working on now
+- [ ] Add proper validation
+- [ ] Robust persistence state abstraction
+- [ ] Better configuration
+- [ ] Some basic associations
+- [ ] Documentation
 
 ## Installation
 
@@ -19,10 +77,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install firecord
-
-## Usage
-
-TODO: Write usage instructions here
+    
 
 ## Development
 
