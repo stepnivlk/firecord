@@ -55,7 +55,7 @@ Address.all
 ```
 
 ## Current version: 0.2.0 codename Spike
-This release is not meant to be used by anyone in production. I'm trying to laid down the interface, experiment and learn basics of ORM/ODM by coding and producing something (maybe) usefull. I still need to finalize some functionality, do refactoring and add features.
+This release is not meant to be used by anyone in production. I'm trying to lay down the interface, experiment and learn basics of ORM/ODM by coding and producing something (maybe) usefull. I still need to finalize some functionality, do refactoring and add features.
 
 ### What I'm working on now
 - [ ] Add proper validation
