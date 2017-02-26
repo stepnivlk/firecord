@@ -4,13 +4,15 @@ Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.
 
 Provides similar API to all those classical Ruby ORM.
 
+You need to download and add ```credentials.json``` for your Firebase project (Firebase console > Project settings > Service accounts > Generate new private key)
+
 ## Usage
 
 ```ruby
 require 'firecord'
 
 Firecord.configure do |config|
-  credentials_file: '/path/to/credentials.json'
+  config.credentials_file = '/path/to/credentials.json'
 end
 
 class Address
