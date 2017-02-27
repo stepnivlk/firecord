@@ -1,0 +1,33 @@
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/Lambda:
+  EnforcedStyle: lambda
+
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+
+Documentation:
+  Enabled: false

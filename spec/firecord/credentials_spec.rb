@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe Firecord::Credentials do
   context 'valid credentials.json given' do
@@ -8,6 +8,10 @@ describe Firecord::Credentials do
     let(:credentials) { described_class.new(fixtures_path) }
     let(:credentials_file) { JSON.parse(File.read(fixtures_path)) }
     let(:decoded) { JWT.decode(credentials.generate_jwt_assertion, nil, false) }
+    let(:scope) {
+      'https://www.googleapis.com/auth/userinfo.email ' \
+        'https://www.googleapis.com/auth/firebase.database'
+    }
 
     it 'Initializes itself properly' do
       expect(credentials.project_id).to eq('addrssr-8612c')
@@ -19,7 +23,7 @@ describe Firecord::Credentials do
       expect(decoded[0]).to include(
         'iss' => credentials_file['client_email'],
         'aud' => credentials_file['token_uri'],
-        'scope' => 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/firebase.database'
+        'scope' => scope
       )
       expect(decoded[0]['iat']).to_not be_nil
       expect(decoded[0]['exp']).to_not be_nil
@@ -39,7 +43,9 @@ describe Firecord::Credentials do
 
   context 'invalid credentials.json given' do
     it 'raises an exception' do
-      expect { described_class.new('invalid_path') }.to raise_error(Errno::ENOENT)
+      expect {
+        described_class.new('invalid_path')
+      }.to raise_error(Errno::ENOENT)
     end
   end
 end

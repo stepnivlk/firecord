@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://accounts.google.com/o/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay01c2w4eUBhZGRyc3NyLTg2MTJjLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL3Rva2VuIiwiaWF0IjoxNDg4MjMzNzY3LCJleHAiOjE0ODgyMzczNjcsInNjb3BlIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC91c2VyaW5mby5lbWFpbCBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2ZpcmViYXNlLmRhdGFiYXNlIn0.QuYzYRG0Jbmg28X6P4BJkNkdvnrkccIq9bCwFxN6f2K7UI52rrXE6Z3u8SfbB3u3dfrUCY-EjOOEqoSyqk-he-PgmwsGfgPRLyWP6qS0qGw9nikegKuoPO9KHVZ0WZ38OF_zmmTtdZ1IqxnGHyp4aj2WIrfXsi20fmVwFKPnpYT2Fmlqu150RWpkGHxoZ_kE_JTDRtpvN6lEs412JjCio2bBmiHVq6vyB6f9fQ7jdpj5rnBBA6Blb5wx9JtK7B1WxkoadXKMgreKV4TQD5AFsBcv0t9NUsdnR9Oi89cYzGlguoCJBQbzzfAbAeZ82U4fh3sGQyYRxdJi9_v0Mepbbg
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Mon, 27 Feb 2017 22:16:07 GMT
+      Content-Disposition:
+      - attachment; filename="json.txt"; filename*=UTF-8''json.txt
+      Server:
+      - ESF
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="35,34"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "access_token" : "ya29.Elv_A5xYP9MlcQaCLhHIvb10ZD2jGMZyHxg2F_Rf_E3IW-5MFQhqdyoYOD0J2zmiZLHQzIbYFrunuiGf638mKvED0lY-5kMmn2CIrpgSPdcWA0j3LYtD7P5kBGxg",
+          "expires_in" : 3600,
+          "token_type" : "Bearer"
+        }
+    http_version: 
+  recorded_at: Mon, 27 Feb 2017 22:16:07 GMT
+recorded_with: VCR 3.0.3
