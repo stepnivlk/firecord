@@ -11,7 +11,7 @@ module Firecord
       fields.each do |field|
         name = field.name
 
-        self.class.class_eval { attr_accessor name }
+        self.class.class_eval do attr_accessor(name) end
         value = params[name] || nil
         instance_variable_set("@#{name}", value)
       end
@@ -19,12 +19,12 @@ module Firecord
 
     def save
       if new?
-        return self.tap do |record|
+        return tap do |record|
           record.id = repository.post(persist)[:name]
         end
       end
 
-      self.tap { |record| repository.patch(record) }
+      tap { |record| repository.patch(record) }
     end
 
     def update(attributes = {})
@@ -32,7 +32,7 @@ module Firecord
         send("#{name}=", value)
       end
 
-      self.tap { |record| repository.patch(record) }
+      tap { |record| repository.patch(record) }
     end
 
     def delete
@@ -40,9 +40,9 @@ module Firecord
     end
 
     def inspect
-      attrs = fields.map do |field|
+      attrs = fields.map { |field|
         "#{field.name}=#{send(field.name) || 'nil'}"
-      end
+      }
 
       "#<#{model.name} #{attrs.join(' ')}>"
     end
