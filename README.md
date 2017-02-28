@@ -69,6 +69,7 @@ This release is not meant to be used by anyone in production. I'm trying to lay 
 - [ ] Better configuration
 - [ ] Documentation
 - [ ] Basic type validation
+- [ ] Get rid of nil checks in firebase repo
 
 ### Future versions
 - [ ] Add proper validation
