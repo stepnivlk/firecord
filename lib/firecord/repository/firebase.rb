@@ -14,43 +14,35 @@ module Firecord
       def all
         self
           .class.get("/#{@root}.json", options)
+          .as { |response| Response.new(response).sanitize }
           .map { |id, data| data.merge(id: id) }
-          .map { |record| symbolize_keys(record) }
       end
 
       def get(id)
         self
           .class.get("/#{@root}/#{id}.json", options)
-          .as { |record| sanitize(record, id: id) }
+          .as { |response| Response.new(response, id: id).sanitize(false) }
       end
 
       def post(record)
         self
           .class.post("/#{@root}.json", payload(record))
-          .as { |response| symbolize_keys(response) }
+          .as { |response| Response.new(response).sanitize }
       end
 
       def patch(record)
         self
           .class.patch("/#{@root}/#{record.id}.json", payload(record))
-          .as { |response| sanitize(response) }
+          .as { |response| Response.new(response).sanitize }
       end
 
       def delete(id)
         self
           .class.delete("/#{@root}/#{id}.json", options)
-          .as { |response| response.nil? ? true : false }
+          .as { |response| response ? false : true }
       end
 
       private
-
-      def sanitize(record, default = {})
-        record.nil? ? nil : symbolize_keys(record, default)
-      end
-
-      def symbolize_keys(record, default = {})
-        record.inject(default) { |h, (k, v)| h[k.to_sym] = v; h }
-      end
 
       def payload(record)
         options.dup.tap do |data|
