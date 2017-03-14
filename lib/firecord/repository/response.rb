@@ -13,14 +13,14 @@ module Firecord
       private
 
       def symbolize_keys
-        @response.inject(@default) do |result, (key, value)|
+        @response.each_with_object(@default) do |(key, value), result|
           result[key.to_sym] = value
           result
         end
       end
 
       def invalid_record(expand_error)
-        expand_error ? {nil => {error: 'invalid response'}} : nil
+        expand_error ? { nil => { error: 'invalid response' } } : nil
       end
     end
   end
