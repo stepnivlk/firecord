@@ -58,18 +58,18 @@ Address.all
 # => []
 ```
 
-## Current version: 0.2.1 codename Spike
+## Current version: 0.2.2 codename Spike
 This release is not meant to be used by anyone in production. I'm trying to lay down the interface, experiment and learn basics of ORM/ODM by coding and producing something (maybe) usefull. I still need to finalize some functionality, do refactoring and add features.
 
 ### Roadmap to version 0.3.0 codename Solid Spike
-- [ ] Working timestamps
+- [x] Working timestamps
 - [ ] Error handling
 - [ ] `where` method
 - [ ] Test everything
 - [ ] Better configuration
 - [ ] Documentation
 - [ ] Basic type validation
-- [ ] Get rid of nil checks in firebase repo
+- [x] Get rid of nil checks in firebase repo
 
 ### Future versions
 - [ ] Add proper validation
