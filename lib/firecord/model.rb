@@ -17,27 +17,32 @@ module Firecord
       end
     end
 
-    def fields
-      @fields
-    end
-
     def all
       repository
         .all
-        .map { |record| new(record).persist }
+        .reject { |response| response.keys.include?(:error) }
+        .map { |response| new(response).persist }
     end
 
     def find(id)
-      new(repository.get(id)).persist
+      repository.get(id).tap do |response|
+        response ? new(response).persist : nil
+      end
     end
 
     def root_key(root_name)
       @root = root_name
     end
 
+    def fields
+      @fields
+    end
+
     def root
       @root || name.downcase
     end
+
+    private
 
     def repository
       @repository ||= Repository::Firebase.new(root)

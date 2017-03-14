@@ -18,13 +18,19 @@ module Firecord
     end
 
     def save
+      timestamp = DateTime.now.to_s
+
       if new?
         return tap do |record|
+          record.created_at = timestamp
           record.id = repository.post(persist)[:name]
         end
       end
 
-      tap { |record| repository.patch(record) }
+      tap do |record|
+        record.updated_at = timestamp
+        repository.patch(record)
+      end
     end
 
     def update(attributes = {})
