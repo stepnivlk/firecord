@@ -18,19 +18,9 @@ module Firecord
     end
 
     def save
-      timestamp = DateTime.now.to_s
+      return _create if new?
 
-      if new?
-        return tap do |record|
-          record.created_at = timestamp
-          record.id = repository.post(persist)[:name]
-        end
-      end
-
-      tap do |record|
-        record.updated_at = timestamp
-        repository.patch(record)
-      end
+      _update
     end
 
     def update(attributes = {})
@@ -53,14 +43,6 @@ module Firecord
       "#<#{model.name} #{attrs.join(' ')}>"
     end
 
-    def fields
-      model.fields
-    end
-
-    def repository
-      model.repository
-    end
-
     def new?
       persistence_state == :transient
     end
@@ -69,6 +51,30 @@ module Firecord
       @persistence_state = :persisted
 
       self
+    end
+
+    private
+
+    def _create
+      tap do |record|
+        record.created_at = DateTime.now.to_s
+        record.id = repository.post(persist)[:name]
+      end
+    end
+
+    def _update
+      tap do |record|
+        record.updated_at = DateTime.now.to_s
+        repository.patch(record)
+      end
+    end
+
+    def fields
+      model.fields
+    end
+
+    def repository
+      model.repository
     end
 
     def persistence_state
