@@ -61,7 +61,7 @@ Address.all
 # => [#<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
 ```
 
-## Current version: 0.2.5
+## Current version: 0.2.6
 This version adds:
 * Basic retypying/checking of invalid assignments, eg: ```address.door_number = '23' #=> 23```.
 * ```.where``` method which for now accepts hash and works only for equality, eg: ```Address.where(door_number: 23)```
