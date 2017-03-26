@@ -32,12 +32,12 @@ module Firecord
     end
 
     def inspect
-      attrs = fields.map do |field|
+      attrs = fields.map { |field|
         value = get_value(field.name)
         formatted = value.is_a?(String) ? "\"#{value}\"" : value
 
         "#{field.name}=#{formatted || 'nil'}"
-      end
+      }
 
       "#<#{model.name} #{attrs.join(' ')}>"
     end
@@ -60,7 +60,7 @@ module Firecord
     end
 
     def respond_to_missing?(method, include_private = false)
-      return available_names.include?(method) || super
+      available_names.include?(method) || super
     end
 
     def fields
@@ -70,7 +70,7 @@ module Firecord
     private
 
     def set_value(name, value, type = nil)
-      type = type || field_for(name).type
+      type ||= field_for(name).type
       sanitizer = Serializer.new(value, type)
 
       send("_#{name}", sanitizer.value)
@@ -103,7 +103,7 @@ module Firecord
     end
 
     def field_for(name)
-      sanitized_name = "#{name}".end_with?('=') ? :"#{name[0..-2]}" : name
+      sanitized_name = name.to_s.end_with?('=') ? :"#{name[0..-2]}" : name
       fields.find { |field| field.name == sanitized_name }
     end
 
@@ -116,10 +116,12 @@ module Firecord
     end
 
     def initialize_accessor(field, params)
-      restrict_accessor(field.name)
+      name = field.name
 
-      value = params[field.name] || nil
-      set_value("#{field.name}=", value, field.type) if value
+      restrict_accessor(name)
+
+      value = params[name] || nil
+      set_value("#{name}=", value, field.type) if value
     end
 
     def restrict_accessor(name)

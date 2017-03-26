@@ -10,7 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['tomas@stepnivlk.net']
 
   spec.summary       = 'Firecord is an ODM framework for Firebase in Ruby.'
-  spec.description   = 'Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.'
+  spec.description   = 'Firecord is an ODM (Object-Document-Mapper) framework' \
+                       ' for Firebase in Ruby.'
   spec.homepage      = "http://stepnivlk.net"
   spec.license       = 'MIT'
 

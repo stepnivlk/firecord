@@ -58,7 +58,7 @@ module Firecord
     def validate_query!(query)
       result = query.keys - fields.map(&:name)
       raise InvalidQuery, 'Your query contains invalid key(s)' \
-        if result.size > 0
+        unless result.empty?
     end
   end
 end

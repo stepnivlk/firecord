@@ -14,7 +14,7 @@ module Firecord
 
       %w(string datetime).each do |type|
         define_method(type) do
-          "#{@value}"
+          @value.to_s
         end
       end
 
