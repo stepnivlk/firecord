@@ -66,8 +66,8 @@ This release is not meant to be used by anyone in production. I'm trying to lay 
 - [ ] Error handling
 - [ ] `where` method
 - [ ] Test everything
-- [ ] Better configuration
-- [ ] Documentation
+- [x] Better configuration
+- [x] Documentation
 - [ ] Basic type validation
 - [x] Get rid of nil checks in firebase repo
 
