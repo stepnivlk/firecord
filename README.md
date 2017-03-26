@@ -43,22 +43,22 @@ another_address.door_number = 23
 # => 23
 
 another_address.save
-# => #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Semice" door_number=2 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">
+# => #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Semice" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">
 
 another_address.update(location: 'Prerov nad Labem')
-# => #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=2 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">
+# => #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">
 
-Address.where(name: "not_home", door_number: 2)
-# => [#<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=2 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
+Address.where(name: "not_home", door_number: 23)
+# => [#<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
 
 Address.all
-# => [#<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:44:32+00:00" updated_at="2017-02-26T19:48:20+00:00">, #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=2 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
+# => [#<Address id="-KdvwtldpM4yVWJfoQIg" name="home" location="Prerov" door_number=1 created_at="2017-02-26T19:44:32+00:00" updated_at=nil>, #<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
 
 address.delete
 # => true
 
 Address.all
-# => [#<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=2 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
+# => [#<Address id="-KgBbL8yedmT88iLmbOE" name="not_home" location="Prerov nad Labem" door_number=23 created_at="2017-02-26T19:33:12+00:00" updated_at="2017-02-26T19:47:22+00:00">]
 ```
 
 ## Current version: 0.2.5
