@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://accounts.google.com/o/oauth2/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay01c2w4eUBhZGRyc3NyLTg2MTJjLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tL28vb2F1dGgyL3Rva2VuIiwiaWF0IjoxNDkwNTYxMzI4LCJleHAiOjE0OTA1NjQ5MjgsInNjb3BlIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYXV0aC91c2VyaW5mby5lbWFpbCBodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hdXRoL2ZpcmViYXNlLmRhdGFiYXNlIn0.wfaNWoc3qQd4CAmcKQy7LFYzxOiEwvnMnlrkzBbfj08SuDi1-Jm9BYdo6TIIAxwL8-OjXHs7TpxhKPOlsImvT3Y7121CmIPkudnrs7qqrtCOyUEarFZcBHqZuJtK2ivALyqNQbEmhM_7sEA7sA4_JN6YcQNm6Zk0hT16OWxlI7I8O47GkSvbFY2eBDoVJRasYbUZiw8Zy7ENm1Wd1cM3n4j7G3p3GkMsji_-2fE5jbJjCccdDqwuUIaMGfloYz2erGicufH38hqra3vZ0Jrgqw3K_-CjR7AIxhi933EICr7I2Tl-bs9Wh-76126UEzRULdXNyL3xlmrPWgs6jwZPXA
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Date:
+      - Sun, 26 Mar 2017 20:48:50 GMT
+      Content-Disposition:
+      - attachment; filename="json.txt"; filename*=UTF-8''json.txt
+      Server:
+      - ESF
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="37,36,35"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "access_token" : "ya29.ElsaBNM1B7mH_M4OBAf7wWzRMNWiErp9cH6r5Ff402cAIbD26OnLuTnhCH4zW99HkNc9NaiXyBhjnxzgBSUpZylqostDgXABcbRcK0Y2PB2a-mc6s4Cq6oX7Ihf7",
+          "expires_in" : 3600,
+          "token_type" : "Bearer"
+        }
+    http_version: 
+  recorded_at: Sun, 26 Mar 2017 20:48:48 GMT
+- request:
+    method: get
+    uri: https://addrssr-8612c.firebaseio.com/empty_root.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer ya29.ElsaBNM1B7mH_M4OBAf7wWzRMNWiErp9cH6r5Ff402cAIbD26OnLuTnhCH4zW99HkNc9NaiXyBhjnxzgBSUpZylqostDgXABcbRcK0Y2PB2a-mc6s4Cq6oX7Ihf7
+      Content-Type:
+      - application/json
+      User-Agent:
+      - X-FIREBASE-CLIENT
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 26 Mar 2017 20:48:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: 'null'
+    http_version: 
+  recorded_at: Sun, 26 Mar 2017 20:48:50 GMT
+recorded_with: VCR 3.0.3

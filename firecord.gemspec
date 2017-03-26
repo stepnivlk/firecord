@@ -9,19 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tomas Koutsky']
   spec.email         = ['tomas@stepnivlk.net']
 
-  spec.summary       = %q{Firecord is an ODM framework for Firebase in Ruby.}
-  spec.description   = %q{Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.}
+  spec.summary       = 'Firecord is an ODM framework for Firebase in Ruby.'
+  spec.description   = 'Firecord is an ODM (Object-Document-Mapper) framework for Firebase in Ruby.'
   spec.homepage      = "http://stepnivlk.net"
   spec.license       = 'MIT'
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise 'RubyGems 2.0 or newer is required to protect against ' \
-      'public gem pushes.'
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

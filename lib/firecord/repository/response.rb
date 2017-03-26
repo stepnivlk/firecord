@@ -6,8 +6,12 @@ module Firecord
         @default = default
       end
 
-      def sanitize(expand_error = true)
-        @response ? symbolize_keys : invalid_record(expand_error)
+      def sanitize
+        @response ? symbolize_keys : invalid_record
+      end
+
+      def sanitize_with_nil
+        @response ? symbolize_keys : nil
       end
 
       private
@@ -19,8 +23,8 @@ module Firecord
         end
       end
 
-      def invalid_record(expand_error)
-        expand_error ? { nil => { error: 'invalid response' } } : nil
+      def invalid_record
+        { nil => { error: 'invalid response' } }
       end
     end
   end
