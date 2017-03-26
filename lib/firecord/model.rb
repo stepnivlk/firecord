@@ -13,7 +13,7 @@ module Firecord
 
     def timestamps
       %i(created_at updated_at).each do |stamp|
-        @fields << OpenStruct.new(name: stamp, type: stamp)
+        @fields << OpenStruct.new(name: stamp, type: :datetime)
       end
     end
 
@@ -25,8 +25,17 @@ module Firecord
     end
 
     def find(id)
-      repository.get(id).tap do |response|
-        response ? new(response).persist : nil
+      response = repository.get(id)
+      response.nil? ? nil : new(response).persist
+    end
+
+    def where(query)
+      validate_query!(query)
+
+      all.select do |record|
+        result = query.map { |name, value| record.send(name) == value }.uniq
+
+        result.size == 1 && result[0] == true ? true : false
       end
     end
 
@@ -42,10 +51,14 @@ module Firecord
       @root || name.downcase
     end
 
-    private
-
     def repository
       @repository ||= Repository::Firebase.new(root)
+    end
+
+    def validate_query!(query)
+      result = query.keys - fields.map(&:name)
+      raise InvalidQuery, 'Your query contains invalid key(s)' \
+        unless result.empty?
     end
   end
 end

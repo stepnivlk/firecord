@@ -15,13 +15,13 @@ module Firecord
         self
           .class.get("/#{@root}.json", options)
           .as { |response| Response.new(response).sanitize }
-          .map { |id, data| data.merge(id: id) }
+          .map { |id, data| Response.new(data.merge(id: id)).sanitize }
       end
 
       def get(id)
         self
           .class.get("/#{@root}/#{id}.json", options)
-          .as { |response| Response.new(response, id: id).sanitize(false) }
+          .as { |response| Response.new(response, id: id).sanitize_with_nil }
       end
 
       def post(record)

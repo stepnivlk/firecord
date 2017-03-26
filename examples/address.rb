@@ -11,5 +11,6 @@ class Address
 
   field :name, :string
   field :location, :string
+  field :door_number, :integer
   field :timestamps
 end
